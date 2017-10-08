@@ -1,0 +1,8 @@
+.FrostingBlob {
+	position: absolute;
+	background: #ffccff;
+	background: url('images/frosting_blob.png') left top no-repeat;
+}
+.splat {
+	background-image: url('images/frosting_splat.png');
+}

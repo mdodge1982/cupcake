@@ -1,0 +1,22 @@
+.Board {
+	position: relative;
+	overflow: hidden;
+	border: 3px solid black;
+}
+.padding {
+	padding: 10px;
+}
+.receptacle {
+	position: absolute;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+.trash {
+	padding: 30px 3px 0 0;
+	background: url('images/compost.png') left top no-repeat;
+}
+.box {
+	padding: 20px 3px 0 0;
+	background: url('images/box.png') left top no-repeat;
+}

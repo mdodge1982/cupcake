@@ -1,0 +1,20 @@
+.Cupcake {
+	position: absolute;
+	width: 2.5em;
+	height: 2.5em;
+	background: url('images/cupcake.png') left top no-repeat;
+}
+.frosted {
+	background-image: url('images/cupcake_frosted.png');
+}
+.failed {
+	background-image: url('images/cupcake_failed.png');
+}
+.burst {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: -30px;
+	top: -23px;
+	background: url('images/burst.png') left top no-repeat;
+}

@@ -1,0 +1,11 @@
+.Controls {
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+}
+.shoot {
+	border-width: 5px;
+	border-radius: 20px;
+	height: 35px;
+	width: 35px;
+}

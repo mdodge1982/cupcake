@@ -1,0 +1,20 @@
+.Bag {
+	background: black;
+	position: absolute;
+	bottom: 0;
+	margin-left: -1.5em;
+	background: url('images/bag_front.png') left top no-repeat;
+}
+.inline {
+	position: static;
+	display: inline-block;
+}
+.frown {
+	background-image: url('images/bag_frown.png');
+}
+.facing-right {
+	background-image: url('images/bag_right.png');
+}
+.facing-left {
+	background-image: url('images/bag_left.png');
+}
