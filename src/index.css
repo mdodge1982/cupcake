@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster|Nunito');
+
 body {
 	margin: 0;
 	padding: 20px;
-	font-family: sans-serif;
+	font-family: 'Nunito', sans-serif;
 	text-align: center;
 }
 * {
 	box-sizing: border-box;
 }
 button {
+	font-family: 'Lobster', cursive;
+	cursor: pointer;
 	padding: 5px 10px;
 	background: #ffccff;
 	font-weight: bold;
@@ -16,4 +20,7 @@ button {
 	border: 3px solid black;
 	border-radius: 6px;
 	vertical-align: middle;
+}
+h1 {
+	font-family: 'Lobster', cursive;
 }
