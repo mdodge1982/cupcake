@@ -68,9 +68,11 @@ class Board extends Component {
 	}
 	handleClick(again) {
 		this.props.startGame(again);
-		document.body.requestFullscreen();
 		clearInterval(this.state.int);
 		this.setState({int:setInterval(() => this.props.moveObjects(),25)});
+		setTimeout(() => {
+			window.scrollTo(0,1);
+		},1000);
 	}
 }
 
