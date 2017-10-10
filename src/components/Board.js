@@ -68,6 +68,7 @@ class Board extends Component {
 	}
 	handleClick(again) {
 		this.props.startGame(again);
+		document.body.requestFullscreen();
 		clearInterval(this.state.int);
 		this.setState({int:setInterval(() => this.props.moveObjects(),25)});
 	}

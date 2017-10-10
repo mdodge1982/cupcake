@@ -9,6 +9,10 @@ body {
 	font-family: 'Nunito', sans-serif;
 	text-align: center;
 }
+p {
+	-webkit-text-size-adjust: 100%;
+	margin: 0 0 10px;
+}
 * {
 	box-sizing: border-box;
 }

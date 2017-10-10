@@ -8,6 +8,7 @@
 	.Board {
 		height: 100%;
 		border: none;
+		overflow: visible;
 	}
 	.holder {
 		height: calc(100% - 60px);
@@ -19,10 +20,10 @@
 .intro {
 	margin: 20px auto;
 	text-align: left;
-	width: 80%;
+	width: 100%;
 	max-width: 700px;
-	padding: 0 0 0 80px;
-	background: url('images/bag_front.png') left 10px no-repeat;
+	padding: 0 10px 0 70px;
+	background: url('images/bag_front.png') 10px 10px no-repeat;
 }
 .message {
 	display: inline-block;
