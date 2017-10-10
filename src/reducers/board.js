@@ -10,8 +10,10 @@ const receptacle = (state = {}, action) => {
 	}
 };
 const getWidth = () => document.getElementById('root').offsetWidth;
-
 const width = getWidth();
+
+const height = window.innerHeight;
+const maxHeight = 440;
 
 const margin = 10;
 
@@ -21,9 +23,11 @@ const cupcakeCount = 20;
 
 const initialState = {
 	width: width,
+	height: Math.min(height,maxHeight),
 	cupcakeCount: cupcakeCount,
 	gameStarted: false,
 	gameOver: false,
+	margin: margin,
 	trash: {
 		width: 71,
 		height: 100,
@@ -60,6 +64,12 @@ const board = (state = initialState, action) => {
 				trash: {...state.trash,count:0},
 				box: {...state.box,count:0},
 				cupcakeCount
+			};
+		case 'RESIZE':
+			return {
+				...state,
+				width: action.width,
+				box: {...state.box,xPos: action.width-boxWidth-margin,}
 			};
 		default:
 			return state;

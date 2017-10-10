@@ -1,17 +1,15 @@
 .Board {
-	height: 440px;
 	position: relative;
 	overflow: hidden;
 	border: 3px solid black;
 }
 @media screen and ( max-height: 500px ){
+	.holder {
+		height: 100%;
+	}
 	.Board {
 		height: 100%;
 		border: none;
-		overflow: visible;
-	}
-	.holder {
-		height: calc(100% - 60px);
 	}
 }
 .padding {

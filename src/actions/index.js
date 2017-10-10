@@ -5,6 +5,16 @@ export const stopBag = () => {
 export const startGame = (replay) => {
 	return {type: 'START_GAME', replay};
 };
+export const resizeWindow = (e) => {
+	return (dispatch,getState) => {
+		const {board} = getState();
+		dispatch({
+			type: 'RESIZE',
+			width: document.getElementById('root').offsetWidth,
+			boardMargin: board.margin
+		});
+	}
+}
 
 const getDestination = (success,board) => {
 	const {box,trash} = board;
@@ -43,13 +53,17 @@ export const addCupcake = () => {
 	};
 };
 
-export const moveBag = (direction) => {
+export const moveBag = (value) => {
 	return (dispatch,getState) => {
 		const {board} = getState();
+		const direction = typeof value==='string' ? value : false;
+		const newXPos = direction ? false : value;
 		dispatch({
 			type: 'MOVE_BAG',
-			width: board.width,
-			direction
+			boardWidth: board.width,
+			boardMargin: board.margin,
+			direction,
+			newXPos
 		});
 	};
 };
@@ -119,10 +133,10 @@ export const addFrosting = () => {
 };
 export const angleShoot = e => {
 	return (dispatch,getState) => {
-		const {bag} = getState();
+		const {bag,board} = getState();
 		const xPos = bag.xPos;
 		const x = e.nativeEvent.offsetX;
-		const y = 320-e.nativeEvent.offsetY;
+		const y = board.height-e.nativeEvent.offsetY;
 		let angle = Math.atan2(y,x-xPos);
 		if(angle>1.9){
 			angle = 2.0;

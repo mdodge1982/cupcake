@@ -8,15 +8,7 @@ const mapStateToProps = ({bag}) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		onArrowDown: (direction) => dispatch(moveBag(direction)),
-		onArrowUp: (direction) => dispatch(stopBag()),
-		onSpacebarDown: () => dispatch(addFrosting())
-	}
-};
-
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{moveBag,stopBag,addFrosting}
 )(Bag);

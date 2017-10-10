@@ -11,32 +11,45 @@ const initialState = {
 const bag = (state = initialState, action) => {
 	switch (action.type) {
 		case 'MOVE_BAG':
-			const step = action.width/70;
-			const movement = action.direction === 'right'
+			let xPos = action.newXPos;
+			let facing = action.direction;
+			if(action.direction){
+				const step = action.boardWidth/70;
+				const movement = action.direction === 'right'
 				? step
 				: -1*step;
-			const margin = step*4;
-			const test = movement>0 ? state.xPos<action.width-margin : state.xPos>margin;
+				xPos = state.xPos+movement;
+			}else{
+				facing = state.xPos-action.newXPos>0 ? 'left' : 'right';
+			}
+			const limitLeft = action.boardMargin;
+			const limitRight = action.boardWidth-action.boardMargin-state.width;
 			return {
 				...state,
-				xPos: test ? state.xPos+movement : state.xPos,
-				facing: action.direction
-			}
+				xPos: xPos<limitLeft||xPos>limitRight ? state.xPos : xPos,
+				facing
+			};
 		case 'STOP_BAG':
 			return {
 				...state,
 				facing: 'front'
-			}
+			};
 		case 'ANGLE_SHOOT':
 			return {
 				...state,
 				angle: action.angle
-			}
+			};
 		case 'BAG_UPRIGHT':
 			return {
 				...state,
 				angle: 1.57
-			}
+			};
+		case 'RESIZE':
+			const rightLimit = action.width-action.boardMargin-state.width;
+			return {
+				...state,
+				xPos: state.xPos>rightLimit ? rightLimit : state.xPos
+			};
 		default:
 			return state
 	}

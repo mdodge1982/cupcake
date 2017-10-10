@@ -15,6 +15,8 @@ class Bag extends Component {
 		const rotation = -1*(angle-1.57);
 		return (
 			<div className={className}
+				onTouchMove={(e) => this.onTouchMove(e)}
+				onTouchEnd={() => this.props.stopBag()}
 				style={{
 					left: xPos+'px',
 					transform: 'rotate('+rotation+'rad)',
@@ -40,15 +42,18 @@ class Bag extends Component {
 	handleKeyDown(e) {
 		if([37,39].includes(e.keyCode)){
 			const direction = e.keyCode===37 ? 'left' : 'right';
-			this.props.onArrowDown(direction);
+			this.props.moveBag(direction);
 		}else if(e.keyCode===32){
-			this.props.onSpacebarDown();
+			this.props.addFrosting();
 		}
 	}
 	handleKeyUp(e) {
 		if([37,39].includes(e.keyCode)){
-			this.props.onArrowUp();
+			this.props.stopBag();
 		}
+	}
+	onTouchMove(e) {
+		this.props.moveBag(e.nativeEvent.touches[0].screenX);
 	}
 }
 

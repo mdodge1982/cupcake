@@ -9,3 +9,9 @@
 	height: 35px;
 	width: 35px;
 }
+
+@media screen and ( max-height: 500px ){
+	.Controls {
+		display: none;
+	}
+}

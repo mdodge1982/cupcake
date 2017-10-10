@@ -15,7 +15,7 @@ class Board extends Component {
 		}
 	}
 	render() {
-		const {width,gameStarted,gameOver,trash,box} = this.props;
+		const {width,height,gameStarted,gameOver,trash,box} = this.props;
 		let message = 'Not bad.';
 		let messageClass = 'message';
 		const lose = trash.count>=box.count;
@@ -26,7 +26,7 @@ class Board extends Component {
 			message = 'Nicely done!'
 		}
 		return (
-			<div className="holder" style={{width:width+'px'}}>
+			<div className="holder" style={{width:width+'px',height:height+'px'}}>
 				<h1>Cupcake Invaders</h1>
 				<div className="Board">
 					{!gameStarted &&
