@@ -1,0 +1,17 @@
+.Receptacle {
+	font-family: 'Lobster', cursive;
+	position: absolute;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	background-position: left top;
+	background-repeat: no-repeat;
+}
+.trash {
+	padding: 30px 3px 0 0;
+	background-image: url('images/compost.png');
+}
+.box {
+	padding: 20px 3px 0 0;
+	background-image: url('images/box.png');
+}

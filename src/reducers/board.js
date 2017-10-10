@@ -21,7 +21,6 @@ const cupcakeCount = 20;
 
 const initialState = {
 	width: width,
-	height: 440,
 	cupcakeCount: cupcakeCount,
 	gameStarted: false,
 	gameOver: false,

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ArrowContainer from '../containers/ArrowContainer';
+import Instructions from '../components/Instructions';
 import './Controls.css';
 
 class Controls extends Component {
@@ -9,6 +10,7 @@ class Controls extends Component {
 				<ArrowContainer direction="left"/>
 				<button className="shoot" onClick={() => this.props.addFrosting()}></button>
 				<ArrowContainer direction="right"/>
+				<Instructions small={true} />
 			</div>
 		);
 	}

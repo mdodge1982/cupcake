@@ -4,28 +4,8 @@ import FrostingContainer from '../containers/FrostingContainer';
 import CupcakesContainer from '../containers/CupcakesContainer';
 import BagContainer from '../containers/BagContainer';
 import Instructions from '../components/Instructions';
+import Receptacle from '../components/Receptacle';
 import './Board.css';
-
-
-class Receptacle extends Component {
-	render() {
-		const {width,height,count,type,xPos,yPos,inline} = this.props;
-		const style = {
-			width: width+'px',
-			height: height+'px'
-		};
-		if(inline){
-			style.position = 'static';
-			style.display = 'inline-block';
-		}else{
-			style.left = xPos+'px';
-			style.bottom = yPos+'px';
-		}
-		return (
-			<div className={type+' receptacle'} style={style}>{count}</div>
-		);
-	}
-}
 
 class Board extends Component {
 	constructor() {
@@ -35,30 +15,32 @@ class Board extends Component {
 		}
 	}
 	render() {
-		const {height,width,gameStarted,gameOver,trash,box} = this.props;
+		const {width,gameStarted,gameOver,trash,box} = this.props;
 		let message = 'Not bad.';
+		let messageClass = 'message';
 		const lose = trash.count>=box.count;
 		if(lose){
 			message = 'Not great.';
+			messageClass += ' lose';
 		}else if(box.count-trash.count>3){
 			message = 'Nicely done!'
 		}
 		return (
-			<div style={{width:width+'px'}}>
+			<div className="holder" style={{width:width+'px'}}>
 				<h1>Cupcake Invaders</h1>
-				<div className="Board" style={{height:height+'px'}}>
+				<div className="Board">
 					{!gameStarted &&
-						<div className="padding">
+						<div className="intro">
+							<h2>Cupcake Invaders</h2>
 							<h3>Frost as many cupcakes as you can!</h3>
 							<Instructions />
-							<p>You can also use the <strong>[&lt; o &gt;]</strong> buttons at the bottom of the board to move and shoot.</p>
+							<p>You can also use the <strong>&lt; o &gt;</strong> buttons at the bottom of the board to move and shoot.</p>
 							<p><button onClick={() => this.handleClick()}>Play Now</button></p>
 						</div>
 					}
 					{gameOver &&
 						<div className="padding">
-							<h3>{message}</h3>
-							<BagContainer inline={true} frown={lose} />
+							<h3 className={messageClass}>{message}</h3>
 							<div><Receptacle {...trash} inline={true} />
 							&nbsp; &nbsp; &nbsp;
 							<Receptacle {...box} inline={true} /></div>
@@ -76,10 +58,7 @@ class Board extends Component {
 					}
 				</div>
 				{gameStarted &&
-					<div>
-						<ControlsContainer />
-						<Instructions small={true} />
-					</div>
+				<ControlsContainer />
 				}
 			</div>
 		);

@@ -8,7 +8,9 @@ class Arrow extends Component {
 			<button
 				className={className}
 				onMouseDown={(e) => this.props.onMouseDown(e)}
-				onMouseUp={(e) => this.props.onMouseUp(e)}>
+				onMouseUp={(e) => this.props.onMouseUp(e)}
+				onTouchStart={(e) => this.props.onMouseDown(e)}
+				onTouchEnd={(e) => this.props.onMouseUp(e)}>
 			</button>
 		);
 	}

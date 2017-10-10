@@ -1,6 +1,7 @@
 const width = document.getElementById('root').offsetWidth;
 
 const initialState = {
+	facing: 'front',
 	xPos: width/2,
 	angle: 1.57,
 	width: 46,

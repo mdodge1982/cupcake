@@ -13,8 +13,8 @@ class Instructions extends Component {
 		}
 		return (
 			<p className={className}>
-				{hint} Use the <strong>[left]</strong> and <strong>[right]</strong> arrow keys to move your pastry bag,
-				and the <strong>[spacebar]</strong> (or click anywhere on the board) to shoot frosting.
+				{hint} Use the <strong>left</strong> and <strong>right</strong> arrow keys to move your pastry bag,
+				and the <strong>spacebar</strong> (or click anywhere on the board) to shoot frosting.
 			</p>
 		);
 	}

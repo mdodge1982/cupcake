@@ -10,14 +10,8 @@ class Bag extends Component {
 		};
 	}
 	render() {
-		const {facing,angle,xPos,width,height,inline} = this.props;
+		const {facing,angle,xPos,width,height} = this.props;
 		let className = 'Bag facing-'+facing;
-		if(inline){
-			className += ' inline';
-			if(this.props.frown){
-				className += ' frown';
-			}
-		}
 		const rotation = -1*(angle-1.57);
 		return (
 			<div className={className}
