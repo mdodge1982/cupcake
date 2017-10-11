@@ -12,9 +12,6 @@
 	background-size:140px 140px;
 }
 @media screen and ( max-height: 500px ){
-	.holder {
-		height: 120%;
-	}
 	.Board {
 		height: 100%;
 		border: none;

@@ -10,6 +10,7 @@ class FrostingBlob extends Component {
 			className += ' splat';
 			width = height;
 			rotation = 0;
+			
 		}
 		return (
 			<li className={className} style={{

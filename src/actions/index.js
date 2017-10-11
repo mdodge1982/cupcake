@@ -1,17 +1,22 @@
 
 export const stopBag = () => {
-	return {type: 'STOP_BAG'};
+	return {type: 'BAG_STOP'};
 };
 export const startGame = (replay) => {
-	return {type: 'START_GAME', replay};
+	return (dispatch,getState) => {
+		dispatch({type: 'BOARD_START'});
+		dispatch({type: 'FROSTING_START'});
+	}
 };
 export const resizeWindow = (e) => {
 	return (dispatch,getState) => {
 		const {board} = getState();
+		const width = document.getElementById('root').offsetWidth;
+		dispatch({type: 'BOARD_RESIZE',width});
 		dispatch({
-			type: 'RESIZE',
-			width: document.getElementById('root').offsetWidth,
-			boardMargin: board.margin
+			type: 'BAG_RESIZE',
+			boardMargin: board.margin,
+			width
 		});
 	}
 }
@@ -30,9 +35,9 @@ export const addCupcake = () => {
 	return (dispatch,getState) => {
 		const {board} = getState();
 		dispatch({
-			type: 'ADD_CUPCAKE',
+			type: 'CUPCAKES_ADD',
 			id: nextCupcakeId++,
-			boardWidth: board.width
+			board: board
 		});
 	};
 };
@@ -43,7 +48,7 @@ export const moveBag = (value) => {
 		const direction = typeof value==='string' ? value : false;
 		const newXPos = direction ? false : value;
 		dispatch({
-			type: 'MOVE_BAG',
+			type: 'BAG_MOVE',
 			boardWidth: board.width,
 			boardMargin: board.margin,
 			direction,
@@ -52,6 +57,15 @@ export const moveBag = (value) => {
 	};
 };
 
+const removeCupcake = (id,status) => {
+	return (dispatch,getState) => {
+		dispatch({type:'CUPCAKES_REMOVE',id});
+		dispatch({type:'BOARD_REMOVECUPCAKE',status});
+	};
+}
+const cupcakeMove = id => {
+	return {type: 'CUPCAKES_MOVE', id};
+}
 const moveCupcake = id => {
 	return (dispatch,getState) => {
 		const {cupcakes,board} = getState();
@@ -61,18 +75,18 @@ const moveCupcake = id => {
 		const leftedge = trashDest[0];
 		if(cake.xPos<=leftedge){
 			if(cake.yPos<=trashDest[1]){
-				dispatch({type: 'REMOVE_CUPCAKE', status:'trash', id});
+				dispatch(removeCupcake(id,'trash'));
 			}else{
 				if(cake.frosted===''){
-					dispatch({type: 'TRASH_CUPCAKE', id});
+					dispatch({type: 'CUPCAKES_TRASH', id});
 				}
-				dispatch({type: 'MOVE_CUPCAKE', id});
+				dispatch(cupcakeMove(id));
 			}
 		}else{
 			if(cake.yPos<=boxDest[1]){
-				dispatch({type: 'REMOVE_CUPCAKE', status:'box', id});
+				dispatch(removeCupcake(id,'box'));
 			}else{
-				dispatch({type: 'MOVE_CUPCAKE', id});
+				dispatch(cupcakeMove(id));
 			}
 		}
 	}
@@ -97,14 +111,14 @@ const moveFrosting = blobId => {
 				const success = blob.yPos<blob.prevYPos;
 				const destination = getDestination(success,board);
 				dispatch({
-					type: 'FROST_CUPCAKE',
+					type: 'CUPCAKES_FROST',
 					id: hitCakeId,
 					success,
 					destination
 				});
-				dispatch({type: 'REMOVE_FROSTING', id:blobId});
+				dispatch({type: 'FROSTING_REMOVE', id:blobId});
 			}else{
-				dispatch({type: 'MOVE_FROSTING', id:blobId});
+				dispatch({type: 'FROSTING_MOVE', id:blobId});
 			}
 		}
 	}
@@ -116,7 +130,7 @@ export const addFrosting = () => {
 		const {bag} = getState();
 		const {xPos,angle,height} = bag;
 		dispatch({
-			type: 'ADD_FROSTING',
+			type: 'FROSTING_ADD',
 			id: nextBlobId++,
 			yPos: height,
 			xPos,
@@ -128,7 +142,7 @@ export const angleShoot = e => {
 	return (dispatch,getState) => {
 		const {board} = getState();
 		dispatch({
-			type: 'ANGLE_SHOOT',
+			type: 'BAG_ANGLESHOOT',
 			e,
 			board
 		});

@@ -26,7 +26,7 @@ class Board extends Component {
 			message = 'Nicely done!'
 		}
 		return (
-			<div className="holder" style={{width:width+'px'}}>
+			<div style={{width:width+'px'}}>
 				<h1>Cupcake Invaders</h1>
 				<div className="Board" style={{height:height+'px'}}>
 					{!gameStarted &&
@@ -68,12 +68,13 @@ class Board extends Component {
 		clearInterval(this.state.int);
 	}
 	handleClick(again) {
+		const root = document.getElementById('root');
+		if(root.requestFullscreen){
+			root.requestFullscreen();
+		}
 		this.props.startGame(again);
 		clearInterval(this.state.int);
 		this.setState({int:setInterval(() => this.props.moveObjects(),25)});
-		setTimeout(() => {
-			window.scrollTo(0,1);
-		},1000);
 	}
 }
 

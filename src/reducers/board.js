@@ -1,6 +1,6 @@
 const receptacle = (state = {}, action) => {
 	switch (action.type) {
-		case 'REMOVE_CUPCAKE':
+		case 'BOARD_REMOVECUPCAKE':
 			return {
 				...state,
 				count: state.count+1
@@ -48,7 +48,7 @@ const initialState = {
 
 const board = (state = initialState, action) => {
 	switch (action.type) {
-		case 'REMOVE_CUPCAKE':
+		case 'BOARD_REMOVECUPCAKE':
 			const gameOver = state.cupcakeCount===1;
 			return {
 				...state,
@@ -56,7 +56,7 @@ const board = (state = initialState, action) => {
 				[action.status]: receptacle(state[action.status],action),
 				gameOver
 			};
-		case 'START_GAME':
+		case 'BOARD_START':
 			return {
 				...state,
 				gameStarted: true,
@@ -65,7 +65,7 @@ const board = (state = initialState, action) => {
 				box: {...state.box,count:0},
 				cupcakeCount
 			};
-		case 'RESIZE':
+		case 'BOARD_RESIZE':
 			return {
 				...state,
 				width: action.width,

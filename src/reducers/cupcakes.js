@@ -1,6 +1,12 @@
 import {combineReducers} from 'redux';
 
-const getYPosFromRow = row => (row*50)+140;
+const getYPosFromRow = (row,board) => {
+	const {margin,height,trash} = board;
+	const rangeTop = height-margin;
+	const rangeBottom = trash.height+margin;
+	const rowHeight = (rangeTop-rangeBottom)/2;
+	return (row*50)+140;
+};
 
 const getRow = () => Math.floor(Math.random()*3);
 
@@ -34,7 +40,7 @@ const getPosition = state => {
 
 const cake = (state, action) => {
 	switch (action.type) {
-	case 'MOVE_CUPCAKE':
+	case 'CUPCAKES_MOVE':
 		const coords = getPosition(state);
 		const wait = state.wait ? state.wait-1 : 0;
 		return {
@@ -43,14 +49,14 @@ const cake = (state, action) => {
 			yPos: coords[1],
 			wait
 		};
-	case 'FROST_CUPCAKE':
+	case 'CUPCAKES_FROST':
 		return {
 			...state,
 			frosted: action.success ? 'frosted' : 'failed',
 			wait: 20,
 			destination: action.destination
 		};
-	case 'TRASH_CUPCAKE':
+	case 'CUPCAKES_TRASH':
 		return {
 			...state,
 			trashed: true
@@ -62,23 +68,23 @@ const cake = (state, action) => {
 
 const byId = (state = {}, action) => {
 	switch (action.type) {
-		case 'ADD_CUPCAKE':
+		case 'CUPCAKES_ADD':
 			const row = getRow();
 			const newCake = {
 				id: action.id,
 				width: 40,
 				height: 54,
 				frosted: '',
-				xPos: action.boardWidth,
+				xPos: action.board.width,
 				row,
-				yPos: getYPosFromRow(row),
+				yPos: getYPosFromRow(row,action.board),
 				wait: 0
 			};
 			return {
 				...state,
 				[action.id]: newCake
 			};
-		case 'REMOVE_CUPCAKE':
+		case 'CUPCAKES_REMOVE':
 			const newState = {...state};
 			delete newState[action.id];
 			return newState;
@@ -95,12 +101,12 @@ const byId = (state = {}, action) => {
 
 const visibleIds = (state = [], action) => {
 	switch (action.type) {
-		case 'ADD_CUPCAKE':
+		case 'CUPCAKES_ADD':
 			return [
 				...state,
 				action.id
 			]
-		case 'REMOVE_CUPCAKE':
+		case 'CUPCAKES_REMOVE':
 			return state.filter(id => id!==action.id);
 		default:
 			return state

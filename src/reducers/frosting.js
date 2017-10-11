@@ -15,7 +15,7 @@ const getPosition = blob => {
 
 const blob = (state, action) => {
 	switch (action.type) {
-	case 'MOVE_FROSTING':
+	case 'FROSTING_MOVE':
 		const coords = getPosition(state);
 		if(coords===false){
 			return state;
@@ -33,7 +33,7 @@ const blob = (state, action) => {
 
 const byId = (state = {}, action) => {
 	switch (action.type) {
-	case 'ADD_FROSTING':
+	case 'FROSTING_ADD':
 		const width = 24;
 		const xPos = action.xPos-width/2;
 		const newBlob = {
@@ -65,14 +65,14 @@ const byId = (state = {}, action) => {
 
 const visibleIds = (state = [], action) => {
 	switch (action.type) {
-		case 'ADD_FROSTING':
+		case 'FROSTING_ADD':
 			return [
 				...state,
 				action.id
 			]
-		case 'REMOVE_FROSTING':
+		case 'FROSTING_REMOVE':
 			return state.filter(id => id!==action.id);
-		case 'START_GAME':
+		case 'BOARD|FROSTING_START':
 			return [];
 		default:
 			return state
@@ -90,7 +90,7 @@ export default reduceReducers(
 	}),
 	(state, action) => {
 		switch (action.type) {
-			case 'MOVE_FROSTING':
+			case 'FROSTING_MOVE':
 				var blob = state.byId[action.id];
 				if(blob.yPos===0){
 					return {
