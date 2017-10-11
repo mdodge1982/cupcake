@@ -24,22 +24,6 @@ const getDestination = (success,board) => {
 		return [trash.xPos+(trash.width/4),trash.yPos+(trash.height/2)];
 	}
 }
-let nextBlobId = 1;
-export const frostCupcake = (id,success) => {
-	return (dispatch,getState) => {
-		const {board} = getState();
-		const destination = getDestination(success,board);
-		dispatch({
-			type: 'FROST_CUPCAKE',
-			id,
-			success,
-			destination
-		});
-	};
-};
-export const removeFrosting = id => {
-	return {type: 'REMOVE_FROSTING', id};
-};
 
 let nextCupcakeId = 1001;
 export const addCupcake = () => {
@@ -48,7 +32,7 @@ export const addCupcake = () => {
 		dispatch({
 			type: 'ADD_CUPCAKE',
 			id: nextCupcakeId++,
-			width: board.width
+			boardWidth: board.width
 		});
 	};
 };
@@ -68,7 +52,7 @@ export const moveBag = (value) => {
 	};
 };
 
-export const moveCupcake = id => {
+const moveCupcake = id => {
 	return (dispatch,getState) => {
 		const {cupcakes,board} = getState();
 		const cake = cupcakes.byId[id];
@@ -94,9 +78,9 @@ export const moveCupcake = id => {
 	}
 };
 
-export const checkForCollision = blobId => {
+const moveFrosting = blobId => {
 	return (dispatch,getState) => {
-		const {cupcakes,frosting} = getState();
+		const {cupcakes,frosting,board} = getState();
 		const blob = frosting.byId[blobId];
 		const {xPos,yPos,width,height} = blob;
 		if(yPos>0){
@@ -111,13 +95,22 @@ export const checkForCollision = blobId => {
 			});
 			if(hitCakeId){
 				const success = blob.yPos<blob.prevYPos;
-				dispatch(frostCupcake(hitCakeId,success));
-				dispatch(removeFrosting(blobId));
+				const destination = getDestination(success,board);
+				dispatch({
+					type: 'FROST_CUPCAKE',
+					id: hitCakeId,
+					success,
+					destination
+				});
+				dispatch({type: 'REMOVE_FROSTING', id:blobId});
+			}else{
+				dispatch({type: 'MOVE_FROSTING', id:blobId});
 			}
 		}
 	}
 };
 
+let nextBlobId = 1;
 export const addFrosting = () => {
 	return (dispatch,getState) => {
 		const {bag} = getState();
@@ -133,19 +126,11 @@ export const addFrosting = () => {
 };
 export const angleShoot = e => {
 	return (dispatch,getState) => {
-		const {bag,board} = getState();
-		const xPos = bag.xPos;
-		const x = e.nativeEvent.offsetX;
-		const y = board.height-e.nativeEvent.offsetY;
-		let angle = Math.atan2(y,x-xPos);
-		if(angle>1.9){
-			angle = 2.0;
-		}else if(angle<1.2){
-			angle = 1.1;
-		}
+		const {board} = getState();
 		dispatch({
 			type: 'ANGLE_SHOOT',
-			angle
+			e,
+			board
 		});
 		dispatch(addFrosting());
 		setTimeout(() => {
@@ -154,17 +139,6 @@ export const angleShoot = e => {
 	};
 };
 
-export const moveFrosting = id => {
-	return (dispatch,getState) => {
-		const {frosting} = getState();
-		const blob = frosting.byId[id];
-		if(blob.yPos===0){
-			dispatch({type: 'STOP_FROSTING', id});
-		}else{
-			dispatch({type: 'MOVE_FROSTING', id});
-		}
-	}
-}
 
 export const moveObjects = () => {
 	return (dispatch,getState) => {
@@ -173,7 +147,6 @@ export const moveObjects = () => {
 		const cakeIds = cupcakes.movingIds;
 		for(let i=0;i<blobIds.length;i++){
 			dispatch(moveFrosting(blobIds[i]));
-			dispatch(checkForCollision(blobIds[i]));
 		}
 		for(let i=0;i<cakeIds.length;i++){
 			dispatch(moveCupcake(cakeIds[i]));

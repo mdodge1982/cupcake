@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster|Nunito:400,700');
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand|Nunito:400,700');
 html {
 	height: 100%;
 }
@@ -17,19 +17,22 @@ p {
 	box-sizing: border-box;
 }
 button {
-	font-family: 'Lobster', cursive;
+	font-family: 'Patrick Hand', cursive;
 	cursor: pointer;
-	padding: 5px 10px;
+	padding: 3px 8px;
 	background: #ffccff;
 	font-weight: bold;
 	border: none;
-	font-size: 16px;
+	font-size: 1.2em;
 	border: 3px solid black;
 	border-radius: 6px;
 	vertical-align: middle;
 }
-h1, h2 {
-	font-family: 'Lobster', cursive;
+h1, h2, h3 {
+	font-family: 'Patrick Hand', cursive;
+}
+h3 {
+	font-size: 1.5em;
 }
 h2 {
 	display: none;

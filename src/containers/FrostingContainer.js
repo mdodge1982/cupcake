@@ -4,8 +4,9 @@ import {getVisibleBlobs} from '../reducers/frosting';
 import Frosting from '../components/Frosting';
 
 const mapStateToProps = ({frosting,cupcakes}) => {
+	const visibleBlobs = getVisibleBlobs(frosting);
 	return {
-		frosting: getVisibleBlobs(frosting)
+		frosting: visibleBlobs
 	};
 }
 

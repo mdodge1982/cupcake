@@ -1,23 +1,25 @@
 import {combineReducers} from 'redux';
+import reduceReducers from 'reduce-reducers';
 
 const getPosition = blob => {
-	if(blob.yPos>0){
-		const v = 40;
-		const vX = v*Math.cos(blob.angle);
-		const vY = v*Math.sin(blob.angle);
-		const now = new Date().getTime();
-		const elapsed = (now-blob.startTime)/50;
-		const y = (-1*Math.pow(elapsed,2))+vY*elapsed;
-		const x = blob.x0+(vX*elapsed);
-		return [x,y];
-	}
-	return [blob.xPos,0];
+	const now = new Date().getTime();
+	const elapsed = (now-blob.startTime)/50;
+	const v = 40;
+	const vX = v*Math.cos(blob.angle);
+	const vY = v*Math.sin(blob.angle);
+	const x = blob.x0+(vX*elapsed);
+	let y = (-1*Math.pow(elapsed,2))+vY*elapsed;
+	y = Math.max(0,y);
+	return [x,y];
 }
 
 const blob = (state, action) => {
 	switch (action.type) {
 	case 'MOVE_FROSTING':
 		const coords = getPosition(state);
+		if(coords===false){
+			return state;
+		}
 		return {
 			...state,
 			prevYPos: state.yPos,
@@ -77,22 +79,35 @@ const visibleIds = (state = [], action) => {
 	}
 }
 const movingIds = (state = [], action) => {
-	switch (action.type) {
-		case 'STOP_FROSTING':
-			return state.filter(id => id!==action.id);
-		default:
-			return visibleIds(state,action);
-	}
+	return visibleIds(state,action);
 }
 
-export default combineReducers({
-	byId,
-	visibleIds,
-	movingIds
-});
+export default reduceReducers(
+	combineReducers({
+		byId,
+		visibleIds,
+		movingIds
+	}),
+	(state, action) => {
+		switch (action.type) {
+			case 'MOVE_FROSTING':
+				var blob = state.byId[action.id];
+				if(blob.yPos===0){
+					return {
+						...state,
+						movingIds: state.movingIds.filter((id) => id!==action.id)
+					};
+				}
+				return state;
+			default:
+				return state;
+		}
+	}
+);
 
-export const getBlob = (state, id) =>
-	state.byId[id];
+export const getBlob = (state, id) => {
+	return state.byId[id];
+}
 
 export const getVisibleBlobs = state =>
 	state.visibleIds.map(id => getBlob(state, id))

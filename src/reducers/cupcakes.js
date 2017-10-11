@@ -66,11 +66,10 @@ const byId = (state = {}, action) => {
 			const row = getRow();
 			const newCake = {
 				id: action.id,
-				fullWidth: action.width,
 				width: 40,
 				height: 54,
 				frosted: '',
-				xPos: action.width,
+				xPos: action.boardWidth,
 				row,
 				yPos: getYPosFromRow(row),
 				wait: 0

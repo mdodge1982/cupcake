@@ -26,9 +26,9 @@ class Board extends Component {
 			message = 'Nicely done!'
 		}
 		return (
-			<div className="holder" style={{width:width+'px',height:height+'px'}}>
+			<div className="holder" style={{width:width+'px'}}>
 				<h1>Cupcake Invaders</h1>
-				<div className="Board">
+				<div className="Board" style={{height:height+'px'}}>
 					{!gameStarted &&
 						<div className="intro">
 							<h2>Cupcake Invaders</h2>
@@ -41,9 +41,10 @@ class Board extends Component {
 					{gameOver &&
 						<div className="padding">
 							<h3 className={messageClass}>{message}</h3>
-							<div><Receptacle {...trash} inline={true} />
+							<Receptacle {...trash} inline={true} />
 							&nbsp; &nbsp; &nbsp;
-							<Receptacle {...box} inline={true} /></div>
+							<Receptacle {...box} inline={true} />
+							<p>&nbsp;</p>
 							<p><button onClick={() => this.handleClick(true)}>Play Again</button></p>
 						</div>
 					}

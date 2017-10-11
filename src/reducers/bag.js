@@ -1,9 +1,10 @@
 const width = document.getElementById('root').offsetWidth;
+const uprightAngle = 1.57;
 
 const initialState = {
 	facing: 'front',
 	xPos: width/2,
-	angle: 1.57,
+	angle: uprightAngle,
 	width: 46,
 	height: 100
 };
@@ -35,14 +36,23 @@ const bag = (state = initialState, action) => {
 				facing: 'front'
 			};
 		case 'ANGLE_SHOOT':
+			const {e,board} = action;
+			const x = e.nativeEvent.offsetX;
+			const y = board.height-e.nativeEvent.offsetY;
+			let angle = Math.atan2(y,x-state.xPos);
+			if(angle>1.9){
+				angle = 2.0;
+			}else if(angle<1.2){
+				angle = 1.1;
+			}
 			return {
 				...state,
-				angle: action.angle
+				angle: angle
 			};
 		case 'BAG_UPRIGHT':
 			return {
 				...state,
-				angle: 1.57
+				angle: uprightAngle
 			};
 		case 'RESIZE':
 			const rightLimit = action.width-action.boardMargin-state.width;
