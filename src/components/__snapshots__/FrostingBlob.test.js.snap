@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Style reflects props 1`] = `
+<li
+  className="FrostingBlob"
+  style={
+    Object {
+      "bottom": "34px",
+      "height": "82px",
+      "left": "22px",
+      "transform": "rotate(-0.030000000000000027rad)",
+      "width": "45px",
+    }
+  }
+/>
+`;
+
+exports[`Style reflects props 2`] = `
+<li
+  className="FrostingBlob"
+  style={
+    Object {
+      "bottom": "34px",
+      "height": "82px",
+      "left": "22px",
+      "transform": "rotate(-0.030000000000000027rad)",
+      "width": "45px",
+    }
+  }
+/>
+`;

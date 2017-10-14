@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text changes when rendered small 1`] = `
+<p
+  className="Instructions"
+>
+  
+   Use the 
+  <strong>
+    left
+  </strong>
+   and 
+  <strong>
+    right
+  </strong>
+   arrow keys to move your pastry bag, and the 
+  <strong>
+    spacebar
+  </strong>
+   (or click anywhere on the board) to shoot frosting.
+</p>
+`;
+
+exports[`Text changes when rendered small 2`] = `
+<p
+  className="Instructions"
+>
+  
+   Use the 
+  <strong>
+    left
+  </strong>
+   and 
+  <strong>
+    right
+  </strong>
+   arrow keys to move your pastry bag, and the 
+  <strong>
+    spacebar
+  </strong>
+   (or click anywhere on the board) to shoot frosting.
+</p>
+`;

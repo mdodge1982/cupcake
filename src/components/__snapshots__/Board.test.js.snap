@@ -1,0 +1,292 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot test game OVER 1`] = `
+<div
+  style={
+    Object {
+      "width": "685px",
+    }
+  }
+>
+  <h1>
+    Cupcake Invaders
+  </h1>
+  <div
+    className="Board"
+    style={
+      Object {
+        "height": "398px",
+      }
+    }
+  >
+    <div
+      className="padding"
+    >
+      <h4
+        className="message"
+      >
+        Nicely done!
+      </h4>
+      <div
+        className="Receptacle undefined"
+        style={
+          Object {
+            "display": "inline-block",
+            "height": "undefinedpx",
+            "position": "static",
+            "width": "undefinedpx",
+          }
+        }
+      >
+        5
+      </div>
+           
+      <div
+        className="Receptacle undefined"
+        style={
+          Object {
+            "display": "inline-block",
+            "height": "undefinedpx",
+            "position": "static",
+            "width": "undefinedpx",
+          }
+        }
+      >
+        14
+      </div>
+      <p>
+         
+      </p>
+      <p>
+        <button
+          className="play"
+          onClick={[Function]}
+        >
+          Play Again
+        </button>
+      </p>
+    </div>
+  </div>
+  <div
+    className="Controls"
+  >
+    <button
+      className="Arrow left"
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+    />
+    <button
+      className="shoot"
+      onClick={[Function]}
+    />
+    <button
+      className="Arrow right"
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+    />
+    <p
+      className="Instructions small"
+    >
+      <strong>
+        HINT:
+      </strong>
+       Use the 
+      <strong>
+        left
+      </strong>
+       and 
+      <strong>
+        right
+      </strong>
+       arrow keys to move your pastry bag, and the 
+      <strong>
+        spacebar
+      </strong>
+       (or click anywhere on the board) to shoot frosting.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Snapshot test game not started 1`] = `
+<div
+  style={
+    Object {
+      "width": "667px",
+    }
+  }
+>
+  <h1>
+    Cupcake Invaders
+  </h1>
+  <div
+    className="Board"
+    style={
+      Object {
+        "height": "430px",
+      }
+    }
+  >
+    <div
+      className="intro"
+    >
+      <h2>
+        Cupcake Invaders
+      </h2>
+      <h3>
+        Frost as many cupcakes as you can!
+      </h3>
+      <p
+        className="Instructions"
+      >
+        
+         Use the 
+        <strong>
+          left
+        </strong>
+         and 
+        <strong>
+          right
+        </strong>
+         arrow keys to move your pastry bag, and the 
+        <strong>
+          spacebar
+        </strong>
+         (or click anywhere on the board) to shoot frosting.
+      </p>
+      <p>
+        You can also use the 
+        <strong>
+          &lt; o &gt;
+        </strong>
+         buttons at the bottom of the board to move and shoot.
+      </p>
+      <p>
+        <button
+          className="play"
+          onClick={[Function]}
+        >
+          Play Now
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snapshot test game started 1`] = `
+<div
+  style={
+    Object {
+      "width": "685px",
+    }
+  }
+>
+  <h1>
+    Cupcake Invaders
+  </h1>
+  <div
+    className="Board"
+    style={
+      Object {
+        "height": "398px",
+      }
+    }
+  >
+    <div>
+      <ul
+        className="Cupcakes"
+      />
+      <div
+        className="Receptacle undefined"
+        style={
+          Object {
+            "bottom": "undefinedpx",
+            "height": "undefinedpx",
+            "left": "undefinedpx",
+            "width": "undefinedpx",
+          }
+        }
+      >
+        0
+      </div>
+      <div
+        className="Receptacle undefined"
+        style={
+          Object {
+            "bottom": "undefinedpx",
+            "height": "undefinedpx",
+            "left": "undefinedpx",
+            "width": "undefinedpx",
+          }
+        }
+      >
+        0
+      </div>
+      <ul
+        className="Frosting"
+        onClick={[Function]}
+      />
+      <div
+        className="Bag facing-undefined"
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        style={
+          Object {
+            "height": "undefinedpx",
+            "left": "undefinedpx",
+            "transform": "rotate(NaNrad)",
+            "width": "undefinedpx",
+          }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="Controls"
+  >
+    <button
+      className="Arrow left"
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+    />
+    <button
+      className="shoot"
+      onClick={[Function]}
+    />
+    <button
+      className="Arrow right"
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+    />
+    <p
+      className="Instructions small"
+    >
+      <strong>
+        HINT:
+      </strong>
+       Use the 
+      <strong>
+        left
+      </strong>
+       and 
+      <strong>
+        right
+      </strong>
+       arrow keys to move your pastry bag, and the 
+      <strong>
+        spacebar
+      </strong>
+       (or click anywhere on the board) to shoot frosting.
+    </p>
+  </div>
+</div>
+`;

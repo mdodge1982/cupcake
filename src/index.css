@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Patrick+Hand|Nunito:400,700');
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Audiowide|Baloo|Nova+Flat|Righteous');
 html {
 	height: 100%;
 }
@@ -17,25 +17,28 @@ p {
 	box-sizing: border-box;
 }
 button {
-	font-family: 'Patrick Hand', cursive;
+	font-family: 'Audiowide', cursive;
 	cursor: pointer;
 	padding: 3px 8px;
 	background: #ffccff;
 	font-weight: bold;
 	border: none;
-	font-size: 1.2em;
+	font-size: 1em;
 	border: 3px solid black;
 	border-radius: 6px;
 	vertical-align: middle;
 }
-h1, h2, h3 {
-	font-family: 'Patrick Hand', cursive;
+h1, h2, h3, h4 {
+	font-family: 'Audiowide', cursive;
 }
 h2 {
 	font-size: 1.8em;
 }
 h3 {
-	font-size: 1.35em;
+	font-size: 1.6em;
+}
+h4 {
+	font-size: 1.3em;
 }
 h2 {
 	display: none;

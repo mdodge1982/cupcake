@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
-import {moveObjects,startGame} from '../actions';
+import {startGame} from '../actions';
+import moveObjects from '../actions/moveObjects';
 import Board from '../components/Board';
 
 

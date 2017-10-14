@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Style and content reflect box/trash props 1`] = `
+<div
+  className="Receptacle trash"
+  style={
+    Object {
+      "bottom": "10px",
+      "height": "100px",
+      "left": "10px",
+      "width": "71px",
+    }
+  }
+>
+  5
+</div>
+`;
+
+exports[`Style and content reflect box/trash props 2`] = `
+<div
+  className="Receptacle trash"
+  style={
+    Object {
+      "bottom": "10px",
+      "height": "100px",
+      "left": "10px",
+      "width": "71px",
+    }
+  }
+>
+  5
+</div>
+`;
+
+exports[`Style and content reflect box/trash props 3`] = `
+<div
+  className="Receptacle trash"
+  style={
+    Object {
+      "bottom": "10px",
+      "height": "100px",
+      "left": "10px",
+      "width": "71px",
+    }
+  }
+>
+  5
+</div>
+`;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Cupcakes.css';
+import Cupcake from '../components/Cupcake';
 
 class Cupcakes extends Component {
 	constructor() {
@@ -11,7 +12,9 @@ class Cupcakes extends Component {
 	render() {
 		return (
 			<ul className="Cupcakes">
-				{this.props.children}
+				{this.props.cupcakes.map(cake => (
+					<Cupcake key={cake.id} {...cake} />
+				))}
 			</ul>
 		);
 	}
@@ -20,7 +23,7 @@ class Cupcakes extends Component {
 		this.setState({
 			int: setInterval(() => {
 				if(count>0){
-					this.props.onInterval();
+					this.props.addCupcake();
 				}else{
 					clearInterval(this.state.int);
 				}

@@ -1,11 +1,13 @@
 import {combineReducers} from 'redux';
 
+const cakeHeight = 54;
+
 const getYPosFromRow = (row,board) => {
 	const {margin,height,trash} = board;
-	const rangeTop = height-margin;
-	const rangeBottom = trash.height+margin;
+	const rangeTop = height-margin-cakeHeight;
+	const rangeBottom = trash.height+(margin*2);
 	const rowHeight = (rangeTop-rangeBottom)/2;
-	return (row*50)+140;
+	return (row*rowHeight)+rangeBottom;
 };
 
 const getRow = () => Math.floor(Math.random()*3);
@@ -73,7 +75,7 @@ const byId = (state = {}, action) => {
 			const newCake = {
 				id: action.id,
 				width: 40,
-				height: 54,
+				height: cakeHeight,
 				frosted: '',
 				xPos: action.board.width,
 				row,

@@ -35,17 +35,17 @@ class Board extends Component {
 							<h3>Frost as many cupcakes as you can!</h3>
 							<Instructions />
 							<p>You can also use the <strong>&lt; o &gt;</strong> buttons at the bottom of the board to move and shoot.</p>
-							<p><button onClick={() => this.handleClick()}>Play Now</button></p>
+							<p><button className="play" onClick={() => this.handleClick()}>Play Now</button></p>
 						</div>
 					}
 					{gameOver &&
 						<div className="padding">
-							<h3 className={messageClass}>{message}</h3>
+							<h4 className={messageClass}>{message}</h4>
 							<Receptacle {...trash} inline={true} />
 							&nbsp; &nbsp; &nbsp;
 							<Receptacle {...box} inline={true} />
 							<p>&nbsp;</p>
-							<p><button onClick={() => this.handleClick(true)}>Play Again</button></p>
+							<p><button className="play" onClick={() => this.handleClick()}>Play Again</button></p>
 						</div>
 					}
 					{gameStarted&&!gameOver &&
@@ -67,14 +67,16 @@ class Board extends Component {
 	componentWillUnmount() {
 		clearInterval(this.state.int);
 	}
-	handleClick(again) {
-		const root = document.getElementById('root');
-		if(root.requestFullscreen){
-			root.requestFullscreen();
-		}
-		this.props.startGame(again);
+	handleClick() {
+		this.props.startGame();
 		clearInterval(this.state.int);
-		this.setState({int:setInterval(() => this.props.moveObjects(),25)});
+		this.setState({int:setInterval(() => {
+			if(!this.props.gameOver){
+				this.props.moveObjects();
+			}else{
+				clearInterval(this.state.int);
+			}
+		},25)});
 	}
 }
 

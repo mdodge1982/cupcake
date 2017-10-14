@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Style reflects props 1`] = `
+<li
+  className="Cupcake "
+  style={
+    Object {
+      "bottom": "134px",
+      "height": "56px",
+      "left": "345px",
+      "width": "42px",
+    }
+  }
+>
+  
+</li>
+`;
+
+exports[`Style reflects props 2`] = `
+<li
+  className="Cupcake "
+  style={
+    Object {
+      "bottom": "134px",
+      "height": "56px",
+      "left": "345px",
+      "width": "42px",
+    }
+  }
+>
+  
+</li>
+`;
