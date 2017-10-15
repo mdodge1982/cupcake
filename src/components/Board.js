@@ -48,7 +48,7 @@ class Board extends Component {
 							<p><button className="play" onClick={() => this.handleClick()}>Play Again</button></p>
 						</div>
 					}
-					{gameStarted&&!gameOver &&
+					{gameStarted &&! gameOver &&
 						<div>
 							<CupcakesContainer />
 							<Receptacle {...trash} />
@@ -58,7 +58,7 @@ class Board extends Component {
 						</div>
 					}
 				</div>
-				{gameStarted &&
+				{gameStarted&&!gameOver &&
 				<ControlsContainer />
 				}
 			</div>
