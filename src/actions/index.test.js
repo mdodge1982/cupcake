@@ -1,3 +1,4 @@
+import React from 'react';
 import {
 	startGame,
 	resizeWindow,
@@ -19,9 +20,6 @@ test('starts the game', () => {
 });
 
 test('resizes the board', () => {
-	const root = document.createElement('div');
-	root.setAttribute('id','root');
-	document.body.appendChild(root);
 	const fn = resizeWindow();
 	const dispatch = jest.fn();
 	const getState = jest.fn();

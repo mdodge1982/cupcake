@@ -115,12 +115,7 @@ const visibleIds = (state = [], action) => {
 	}
 }
 const movingIds = (state = [], action) => {
-	switch (action.type) {
-		case 'STOP_CUPCAKE':
-			return state.filter(id => id!==action.id);
-		default:
-			return visibleIds(state,action);
-	}
+	return visibleIds(state,action);
 }
 
 export default combineReducers({

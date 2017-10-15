@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Style reflects props 1`] = `
+exports[`Initial render 1`] = `
 <li
   className="FrostingBlob"
   style={
@@ -15,16 +15,16 @@ exports[`Style reflects props 1`] = `
 />
 `;
 
-exports[`Style reflects props 2`] = `
+exports[`Splats when landing at the bottom 1`] = `
 <li
-  className="FrostingBlob"
+  className="FrostingBlob splat"
   style={
     Object {
-      "bottom": "34px",
+      "bottom": "0px",
       "height": "82px",
       "left": "22px",
-      "transform": "rotate(-0.030000000000000027rad)",
-      "width": "45px",
+      "transform": "rotate(0rad)",
+      "width": "82px",
     }
   }
 />

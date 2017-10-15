@@ -48,14 +48,6 @@ const initialState = {
 
 const board = (state = initialState, action) => {
 	switch (action.type) {
-		case 'BOARD_REMOVECUPCAKE':
-			const gameOver = state.cupcakeCount===1;
-			return {
-				...state,
-				cupcakeCount: state.cupcakeCount-1,
-				[action.status]: receptacle(state[action.status],action),
-				gameOver
-			};
 		case 'BOARD_START':
 			return {
 				...state,
@@ -70,6 +62,14 @@ const board = (state = initialState, action) => {
 				...state,
 				width: action.width,
 				box: {...state.box,xPos: action.width-boxWidth-margin,}
+			};
+		case 'BOARD_REMOVECUPCAKE':
+			const gameOver = state.cupcakeCount===1;
+			return {
+				...state,
+				cupcakeCount: state.cupcakeCount-1,
+				[action.status]: receptacle(state[action.status],action),
+				gameOver
 			};
 		default:
 			return state;

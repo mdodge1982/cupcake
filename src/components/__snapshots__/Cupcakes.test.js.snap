@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Initial render 1`] = `
+<ul
+  className="Cupcakes"
+>
+  <li
+    className="Cupcake undefined"
+    style={
+      Object {
+        "bottom": "undefinedpx",
+        "height": "undefinedpx",
+        "left": "undefinedpx",
+        "width": "undefinedpx",
+      }
+    }
+  >
+    
+  </li>
+</ul>
+`;

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Initial render 1`] = `
+<ul
+  className="Frosting"
+  onClick={[Function]}
+>
+  <li
+    className="FrostingBlob"
+    style={
+      Object {
+        "bottom": "undefinedpx",
+        "height": "undefinedpx",
+        "left": "undefinedpx",
+        "transform": "rotate(NaNrad)",
+        "width": "undefinedpx",
+      }
+    }
+  />
+</ul>
+`;

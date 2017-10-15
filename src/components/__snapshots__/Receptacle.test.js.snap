@@ -1,38 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Style and content reflect box/trash props 1`] = `
+exports[`Game over inline render 1`] = `
 <div
-  className="Receptacle trash"
+  className="Receptacle box"
   style={
     Object {
-      "bottom": "10px",
-      "height": "100px",
-      "left": "10px",
-      "width": "71px",
+      "display": "inline-block",
+      "height": "88px",
+      "position": "static",
+      "width": "67px",
     }
   }
 >
-  5
+  10
 </div>
 `;
 
-exports[`Style and content reflect box/trash props 2`] = `
+exports[`Initial render as box 1`] = `
 <div
-  className="Receptacle trash"
+  className="Receptacle box"
   style={
     Object {
       "bottom": "10px",
-      "height": "100px",
-      "left": "10px",
-      "width": "71px",
+      "height": "88px",
+      "left": "448px",
+      "width": "67px",
     }
   }
 >
-  5
+  10
 </div>
 `;
 
-exports[`Style and content reflect box/trash props 3`] = `
+exports[`Initial render as trash 1`] = `
 <div
   className="Receptacle trash"
   style={

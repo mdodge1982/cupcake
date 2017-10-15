@@ -3,14 +3,18 @@ import renderer from 'react-test-renderer';
 import Instructions from './Instructions';
 
 
-test('Text changes when rendered small', () => {
+test('Default render', () => {
 	const component = renderer.create(
 		<Instructions />
 	);
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
+});
 
-	tree.props.small = true;
-	tree = component.toJSON();
+test('Small render', () => {
+	const component = renderer.create(
+		<Instructions small={true} />
+	);
+	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });

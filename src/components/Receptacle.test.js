@@ -21,19 +21,25 @@ const box = {
 	type: 'box',
 	count: 10
 };
-test('Style and content reflect box/trash props', () => {
-	const receptacle = trash;
+test('Initial render as trash', () => {
 	const component = renderer.create(
-		<Receptacle {...receptacle} />
+		<Receptacle {...trash} />
 	);
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
-
-	tree.props = box;
-	tree = component.toJSON();
+});
+test('Initial render as box', () => {
+	const component = renderer.create(
+		<Receptacle {...box} />
+	);
+	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
+});
 
-	tree.props.inline = true;
-	tree = component.toJSON();
+test('Game over inline render', () => {
+	const component = renderer.create(
+		<Receptacle {...box} inline={true} />
+	);
+	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });

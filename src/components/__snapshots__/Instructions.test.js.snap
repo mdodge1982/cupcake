@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text changes when rendered small 1`] = `
+exports[`Default render 1`] = `
 <p
   className="Instructions"
 >
@@ -21,11 +21,13 @@ exports[`Text changes when rendered small 1`] = `
 </p>
 `;
 
-exports[`Text changes when rendered small 2`] = `
+exports[`Small render 1`] = `
 <p
-  className="Instructions"
+  className="Instructions small"
 >
-  
+  <strong>
+    HINT:
+  </strong>
    Use the 
   <strong>
     left

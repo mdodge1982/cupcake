@@ -16,10 +16,6 @@ test('Snapshot test', () => {
 	);
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
-
-	tree.props.wait = 18;
-	tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
 });
 
 test('onClick test', () => {

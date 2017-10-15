@@ -52,6 +52,12 @@ const byId = (state = {}, action) => {
 			...state,
 			[action.id]: newBlob
 		};
+	case 'FROSTING_REMOVE':
+		const newState = {...state};
+		delete newState[action.id];
+		return newState;
+	case 'FROSTING_START':
+		return {};
 	default:
 		if(action.id&&state[action.id]){
 			return {
@@ -72,7 +78,7 @@ const visibleIds = (state = [], action) => {
 			]
 		case 'FROSTING_REMOVE':
 			return state.filter(id => id!==action.id);
-		case 'BOARD|FROSTING_START':
+		case 'FROSTING_START':
 			return [];
 		default:
 			return state

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Initial render 1`] = `
+<div
+  className="Bag facing-front"
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  style={
+    Object {
+      "height": "100px",
+      "left": "145px",
+      "transform": "rotate(1.57rad)",
+      "width": "50px",
+    }
+  }
+/>
+`;
+
+exports[`Render after moving 1`] = `
+<div
+  className="Bag facing-left"
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  style={
+    Object {
+      "height": "100px",
+      "left": "29px",
+      "transform": "rotate(-0.030000000000000027rad)",
+      "width": "50px",
+    }
+  }
+/>
+`;

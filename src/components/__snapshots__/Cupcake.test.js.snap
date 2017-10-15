@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Style reflects props 1`] = `
+exports[`Initial render 1`] = `
 <li
   className="Cupcake "
   style={
@@ -16,7 +16,7 @@ exports[`Style reflects props 1`] = `
 </li>
 `;
 
-exports[`Style reflects props 2`] = `
+exports[`Render with wait (after frosting hit) 1`] = `
 <li
   className="Cupcake "
   style={
@@ -28,6 +28,8 @@ exports[`Style reflects props 2`] = `
     }
   }
 >
-  
+  <span
+    className="burst"
+  />
 </li>
 `;
