@@ -1,6 +1,6 @@
 # Cupcake Invaders
 
-Cupcake Invaders is a React game devised by an avid baker, yours truly. Similar to the classic Space Invaders game, the player attempts to shoot frosting onto the tops of cupcakes as they float across the screen. A correctly frosted cupcake ends up in the pastry box, while an unfrosted or incorrectly frosted cupcake will end up in the compost bucket.
+[Cupcake Invaders](https://cupcake-invaders.herokuapp.com) is a React game devised by an avid baker, yours truly. Similar to the classic Space Invaders game, the player attempts to shoot frosting onto the tops of cupcakes as they float across the screen. A correctly frosted cupcake ends up in the pastry box, while an unfrosted or incorrectly frosted cupcake will end up in the compost bucket.
 
 Play the game: https://cupcake-invaders.herokuapp.com
 
